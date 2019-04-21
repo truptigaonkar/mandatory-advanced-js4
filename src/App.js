@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Board from './components/Board'
 
 class App extends Component {
 
@@ -19,7 +20,8 @@ class App extends Component {
     return (
       <div className="App">
         <h3>Connect 4</h3>
-        {this.state.cells}
+        
+        <Board cells={this.state.cells}  />
       </div>
     );
   }
