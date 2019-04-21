@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+
+    // Dynamically add cells to table rows & fill with value=0 from array positions 0 to 6
+    let cells = []
+    for (let i = 0; i < 6; i++) {
+      cells.push(new Array(7).fill(0))
+    }
+    this.state = { cells } // Same as 'this.state = { cells: cells }'
+  }
+
   render() {
+    console.log(this.state.cells);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h3>Connect 4</h3>
+        {this.state.cells}
       </div>
     );
   }
