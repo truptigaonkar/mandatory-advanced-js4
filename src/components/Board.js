@@ -1,5 +1,19 @@
 import React from 'react'
 
+const Circle = (props) => {
+    let circleStyle = {
+        backgroundColor: 'white',
+        border: "1px solid black",
+        borderRadius: "100%",
+        paddingTop: "98%"
+    }
+    return(
+        <div style={circleStyle}>
+            
+        </div>
+    )
+}
+
 const Cell = (props) => {
     // Cell styling
     let cellStyle = {
@@ -10,8 +24,8 @@ const Cell = (props) => {
     }
     console.log(props.cell)
     return (
-        <div style={cellStyle}>
-            {/* {props.cell} */}
+        <div style={cellStyle} onClick={() => props.handleClick(props.row, props.col)}>
+             <Circle cell={props.cell} />
         </div>
     )
 }
@@ -40,7 +54,7 @@ const Board = (props) => {
     // Dynamically add rows to array
     let rows = [];
     for (let i = 5; i >= 0; i--) {
-        rows.push(<Row key={i} row={i} cells={props.cells[i]} />)
+        rows.push(<Row key={i} row={i} cells={props.cells[i]} handleClick={props.handleClick} />)
     }
     console.log("Board component: ", props.cells)
     return (
