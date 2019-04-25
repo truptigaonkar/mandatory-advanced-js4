@@ -71,6 +71,7 @@ class App extends Component {
     return 0
   }
 
+  // Horizontal winning conditions
   checkHorizontal(row, col) {
     let cells = this.state.cells;
     let i = 6;
@@ -88,8 +89,30 @@ class App extends Component {
     return 0
   }
 
+  // Diagonal Right winning conditions
+  checkDiagonalRight(row, col) {
+    let cell = this.state.cells
+    let changePlayer = this.state.player ? 2 : 1
+    while (row < 5 && col < 6) {
+      row++
+      col++
+    }
+
+    while (row >= 3 && col >= 3) {
+      if (cell[row][col] === changePlayer && 
+        cell[row - 1][col - 1] === changePlayer && 
+        cell[row - 2][col - 2] === changePlayer && 
+        cell[row - 3][col - 3] === changePlayer) {
+        return 1
+      }
+      row--
+      col--
+    }
+    return 0
+  }
+
   checkVictory(row, col) {
-    return this.checkVertical(row, col) || this.checkHorizontal(row, col)
+    return this.checkVertical(row, col) || this.checkHorizontal(row, col) || this.checkDiagonalRight(row, col) 
   }
 
   render() {
