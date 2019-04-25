@@ -1,11 +1,17 @@
 import React from 'react'
 
 const Circle = (props) => {
+    let color = "white"
+    if(props.cell === 1){
+        color = "yellow"
+    } else if(props.cell === 2){
+        color = "red"
+    }
     let circleStyle = {
-        backgroundColor: 'white',
-        border: "1px solid black",
+        backgroundColor: color,
+        border: "black 1px solid",
         borderRadius: "100%",
-        paddingTop: "98%"
+        paddingTop: "98%"   
     }
     return(
         <div style={circleStyle}>
@@ -20,9 +26,9 @@ const Cell = (props) => {
         height: 50,
         width: 50,
         backgroundColor: "blue",
-        border: "black 1px solid"
+        
     }
-    console.log(props.cell)
+    //console.log(props.cell)
     return (
         <div style={cellStyle} onClick={() => props.handleClick(props.row, props.col)}>
              <Circle cell={props.cell} />
@@ -56,7 +62,7 @@ const Board = (props) => {
     for (let i = 5; i >= 0; i--) {
         rows.push(<Row key={i} row={i} cells={props.cells[i]} handleClick={props.handleClick} />)
     }
-    console.log("Board component: ", props.cells)
+    //console.log("Board component: ", props.cells)
     return (
         <div>
             <h3>Board</h3>

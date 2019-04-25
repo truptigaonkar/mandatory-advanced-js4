@@ -20,25 +20,37 @@ class App extends Component {
     // Logging row and column when clicked  
     console.log("row: " + row + " | col: " + col)
     
-    // for (let i = 0; i < 6; i++) {
-    //   temp.push(this.state.cells[i].slice())
-    // }
-    // var newRow = this.findAvailableRow(col)
-    // temp[newRow][col] = this.state.player ? 1 : 2
-    // this.setState({ cells: temp, player: !this.state.player }, () => {
-    //   if (this.checkVictory(newRow, col) > 0) {
-    //     console.log("win")
-    //     this.setState({ winner: this.state.player ? 2 : 1 })
-    //   }
-    // })
+    // Adding cells to array without altering its original content
+    let temp = []
+    for (let i = 0; i < 6; i++) {
+      let cellsVar = this.state.cells[i]
+      temp.push(cellsVar.slice()) //Slice is used not to alter the original contents
+    }
+    let newRow = this.findAvailableRow(col) // Getting new row from each column 
+    
+    console.log(newRow);
+    temp[newRow][col] = this.state.player ? 1 : 2
+    this.setState({ cells: temp, player: !this.state.player })
+  }
+
+  
+  findAvailableRow(col) {
+    for (let i = 0; i < 6; i++) {
+      if (this.state.cells[i][col] === 0) {
+        return i
+      }
+    }
+    return -1
   }
 
   render() {
-    console.log(this.state.cells);
+    //console.log(this.state.cells);
+    
     return (
       <div className="App">
         <h3>Connect 4</h3>
-        
+        {/* Showing next alternate turns Yellow and Red */}
+        <h1>{this.state.player ? "Next YELLOW Turn" : "Next RED Turn"} </h1> 
         <Board cells={this.state.cells} handleClick={this.handleClick} />
       </div>
     );
