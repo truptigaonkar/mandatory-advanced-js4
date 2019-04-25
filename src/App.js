@@ -137,15 +137,24 @@ class App extends Component {
     return this.checkVertical(row, col) || this.checkHorizontal(row, col) || this.checkDiagonalRight(row, col) || this.checkDiagonalLeft(row, col)
   }
 
+  // Reseting and restarting game
+  handleReset() {
+    let cells = [];
+    for (let i = 0; i < 6; i++) {
+      cells.push(new Array(7).fill(0));
+    }
+    this.setState({ cells, player: false, winner:0 }) // Helping to reset the game from scratch
+  }
+
   render() {
     //console.log(this.state.cells);
-
     return (
       <div className="App">
         <h3>Connect 4</h3>
         {/* Showing next alternate turns Yellow and Red */}
         <h2>{this.state.winner > 0 ? this.state.winner === 1 ? "Yellow Wins! Game over. Please start a new game." : "Red Wins! Game over. Please start a new game." : this.state.player ? "Yellows Turn" : "Reds Turn"} </h2>
-        <Board cells={this.state.cells} handleClick={this.handleClick} /><br />
+        <button onClick={this.handleReset.bind(this)}>RESET</button><br/><br/>
+        <Board cells={this.state.cells} handleClick={this.handleClick} />
       </div>
     );
   }
