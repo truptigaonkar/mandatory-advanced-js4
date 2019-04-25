@@ -71,8 +71,25 @@ class App extends Component {
     return 0
   }
 
+  checkHorizontal(row, col) {
+    let cells = this.state.cells;
+    let i = 6;
+    let changePlayer = this.state.player ? 2 : 1;
+
+    while (i >= 3) {
+      if (cells[row][i] === changePlayer && 
+        cells[row][i - 1] === changePlayer && 
+        cells[row][i - 2] === changePlayer && 
+        cells[row][i - 3] === changePlayer) {
+        return 1
+      }
+      i--
+    }
+    return 0
+  }
+
   checkVictory(row, col) {
-    return this.checkVertical(row, col)
+    return this.checkVertical(row, col) || this.checkHorizontal(row, col)
   }
 
   render() {
@@ -82,7 +99,7 @@ class App extends Component {
       <div className="App">
         <h3>Connect 4</h3>
         {/* Showing next alternate turns Yellow and Red */}
-        <h1>{this.state.winner > 0 ? this.state.winner === 1 ? "Black Wins" : "Red Wins" : this.state.player ? "Blacks Turn" : "Reds Turn"} </h1>
+        <h2>{this.state.winner > 0 ? this.state.winner === 1 ? "Yellow Wins! Game over. Please start a new game." : "Red Wins! Game over. Please start a new game." : this.state.player ? "Yellows Turn" : "Reds Turn"} </h2>
         <Board cells={this.state.cells} handleClick={this.handleClick} /><br />
       </div>
     );

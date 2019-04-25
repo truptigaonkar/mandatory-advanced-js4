@@ -65,7 +65,6 @@ const Board = (props) => {
     //console.log("Board component: ", props.cells)
     return (
         <div>
-            <h3>Board</h3>
             {rows}
         </div>
     )
