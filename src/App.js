@@ -77,9 +77,9 @@ class App extends Component {
     let changePlayer = this.state.player ? 2 : 1;
 
     while (i >= 3) {
-      if (cells[row][i] === changePlayer && 
-        cells[row][i - 1] === changePlayer && 
-        cells[row][i - 2] === changePlayer && 
+      if (cells[row][i] === changePlayer &&
+        cells[row][i - 1] === changePlayer &&
+        cells[row][i - 2] === changePlayer &&
         cells[row][i - 3] === changePlayer) {
         return 1
       }
@@ -98,9 +98,9 @@ class App extends Component {
     }
 
     while (row >= 3 && col >= 3) {
-      if (cell[row][col] === changePlayer && 
-        cell[row - 1][col - 1] === changePlayer && 
-        cell[row - 2][col - 2] === changePlayer && 
+      if (cell[row][col] === changePlayer &&
+        cell[row - 1][col - 1] === changePlayer &&
+        cell[row - 2][col - 2] === changePlayer &&
         cell[row - 3][col - 3] === changePlayer) {
         return 1
       }
@@ -121,9 +121,9 @@ class App extends Component {
     }
 
     while (row >= 3 && col <= 3) {
-      if (cell[row][col] === changePlayer && 
-        cell[row - 1][col + 1] === changePlayer && 
-        cell[row - 2][col + 2] === changePlayer && 
+      if (cell[row][col] === changePlayer &&
+        cell[row - 1][col + 1] === changePlayer &&
+        cell[row - 2][col + 2] === changePlayer &&
         cell[row - 3][col + 3] === changePlayer) {
         return 1
       }
@@ -143,7 +143,7 @@ class App extends Component {
     for (let i = 0; i < 6; i++) {
       cells.push(new Array(7).fill(0));
     }
-    this.setState({ cells, player: false, winner:0 }) // Helping to reset the game from scratch
+    this.setState({ cells, player: false, winner: 0 }) // Helping to reset the game from scratch
   }
 
   render() {
@@ -152,8 +152,10 @@ class App extends Component {
       <div className="App">
         <h3>Connect 4</h3>
         {/* Showing next alternate turns Yellow and Red */}
-        <h2>{this.state.winner > 0 ? this.state.winner === 1 ? "Yellow Wins! Game over. Please start a new game." : "Red Wins! Game over. Please start a new game." : this.state.player ? "Yellows Turn" : "Reds Turn"} </h2>
-        <button onClick={this.handleReset.bind(this)}>RESET</button><br/><br/>
+        <div>
+          <h4>{this.state.winner > 0 ? this.state.winner === 1 ? <div className="yellowTurn"><i className="fa fa-trophy" style={{ fontSize: '85px', color:'#D4AF37'}}></i></div> : <div className="redTurn"><i className="fa fa-trophy" style={{ fontSize: '85px', color:'#D4AF37'}}></i></div> : this.state.player ? <div className="yellowTurn"></div> : <div className="redTurn"></div>} </h4>
+        </div>
+        <button onClick={this.handleReset.bind(this)}>RESET</button><br /><br />
         <Board cells={this.state.cells} handleClick={this.handleClick} />
       </div>
     );

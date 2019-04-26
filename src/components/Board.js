@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Circle = (props) => {
-    let color = "white"
+    let color = "#006400";
     if(props.cell === 1){
         color = "yellow"
     } else if(props.cell === 2){
@@ -9,24 +9,22 @@ const Circle = (props) => {
     }
     let circleStyle = {
         backgroundColor: color,
-        border: "black 1px solid",
-        borderRadius: "100%",
-        paddingTop: "98%"   
+        border: "green 1px solid",
+        borderRadius: "40%",
+        paddingTop: "90%",
+        marginRight: "10%",
     }
     return(
-        <div style={circleStyle}>
-            
-        </div>
+        <div style={circleStyle}></div>
     )
 }
 
 const Cell = (props) => {
     // Cell styling
     let cellStyle = {
-        height: 50,
-        width: 50,
-        backgroundColor: "blue",
-        
+        height: 100,
+        width: 100,
+        //backgroundColor: "#0074B3", 
     }
     //console.log(props.cell)
     return (
@@ -40,7 +38,9 @@ const Cell = (props) => {
 const Row = (props) => {
     // Row styling
     let rowStyle = {
-        display: "flex"
+        display: "flex",
+        position: 'relative',
+        left: '22%',
     }
 
     // Dynamically add cells to array
