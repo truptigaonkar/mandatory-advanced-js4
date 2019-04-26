@@ -22,8 +22,8 @@ const Circle = (props) => {
 const Cell = (props) => {
     // Cell styling
     let cellStyle = {
-        height: 100,
-        width: 100,
+        height: 90,
+        width: 90,
         //backgroundColor: "#0074B3", 
     }
     //console.log(props.cell)
@@ -34,13 +34,10 @@ const Cell = (props) => {
     )
 }
 
-
 const Row = (props) => {
     // Row styling
     let rowStyle = {
-        display: "flex",
-        position: 'relative',
-        left: '22%',
+        display: "flex"
     }
 
     // Dynamically add cells to array

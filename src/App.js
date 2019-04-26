@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Board from './components/Board'
+import { Button, Card, CardHeader, CardBody, CardFooter } from 'reactstrap';
 
 class App extends Component {
 
@@ -150,13 +151,23 @@ class App extends Component {
     //console.log(this.state.cells);
     return (
       <div className="App">
-        <h3>Connect 4</h3>
-        {/* Showing next alternate turns Yellow and Red */}
-        <div>
-          <h4>{this.state.winner > 0 ? this.state.winner === 1 ? <div className="yellowTurn"><i className="fa fa-trophy" style={{ fontSize: '85px', color:'#D4AF37'}}></i></div> : <div className="redTurn"><i className="fa fa-trophy" style={{ fontSize: '85px', color:'#D4AF37'}}></i></div> : this.state.player ? <div className="yellowTurn"></div> : <div className="redTurn"></div>} </h4>
+        
+        <div className="form">
+          <Card body inverse color="success">
+            <CardHeader><h2 style={{ color: '#336E7B' }}>CONNECT 4</h2>
+              <div>
+                <h4>{this.state.winner > 0 ? this.state.winner === 1 ? <div className="yellowWinner"><i className="trophyIcon fa fa-trophy" style={{ fontSize: '70px', color: '#D4AF37' }}></i></div> : <div className="redWinner"><i className="trophyIcon fa fa-trophy" style={{ fontSize: '70px', color: '#D4AF37' }}></i></div> : this.state.player ? <div className="yellowTurn"></div> : <div className="redTurn"></div>} </h4>
+              </div>
+            </CardHeader>
+            <CardBody>
+              <Board cells={this.state.cells} handleClick={this.handleClick} />
+            </CardBody>
+            <CardFooter>
+              <Button color="success" size="lg" active onClick={this.handleReset.bind(this)}><i className="fa fa-refresh fa-spin"></i></Button>
+            </CardFooter>
+          </Card>
         </div>
-        <button onClick={this.handleReset.bind(this)}>RESET</button><br /><br />
-        <Board cells={this.state.cells} handleClick={this.handleClick} />
+
       </div>
     );
   }
