@@ -17,33 +17,25 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+  // Handling click event
   handleClick(row, col) {
-    // If winner found do not execute below code or stop playing
-    if (this.state.winner)
-      return
-
-    // Logging row and column when clicked  
-    console.log("row: " + row + " | col: " + col)
-
-    // Adding cells to array without altering its original content
-    let temp = []
-    for (let i = 0; i < 6; i++) {
-      let cellsVar = this.state.cells[i]
-      temp.push(cellsVar.slice()) //Slice is used not to alter the original contents
-    }
-    let newRow = this.findAvailableRow(col) // Getting new row from each column 
-
-    console.log(newRow);
-    temp[newRow][col] = this.state.player ? 1 : 2
-
-    this.setState({ cells: temp, player: !this.state.player }, () => {
-      if (this.checkVictory(newRow, col) > 0) {
-        console.log("win")
-        this.setState({ winner: this.state.player ? 2 : 1 })
-      }
-
-    })
-
+    console.log("row: " + row + " | col: " + col, this.state.cells[row][col])
+		if (!this.state.cells[row][col] && !this.state.winner) {
+			var temp = [],
+				newRow = this.findAvailableRow(col)
+			for (let i = this.state.cells.length - 1; i >= 0; i--) {
+			// for (let i = 0; i < 6; i++) {
+				temp.unshift( this.state.cells[i].slice(0) )
+			}
+			temp[newRow][col] = this.state.player ? 1 : 2
+			this.setState({cells: temp, player: !this.state.player}, () => {
+				// console.log('updated state:', this.state)
+				if (this.checkVictory(newRow, col) > 0) {
+					console.log("win")
+					this.setState({winner: this.state.player ? 2 : 1})
+				}
+			});
+		}
   }
 
   findAvailableRow(col) {
