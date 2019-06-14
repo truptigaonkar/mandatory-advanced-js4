@@ -10,13 +10,12 @@ playing. If the game is a draw, the game should show a message.
 * A “reset” button should be displayed after the game is over.
 
 ### Installation
-$ git clone git@github.com:truptigaonkar/mandatory-advanced-js4.git
-
-$ cd mandatory-advanced-js4.git
-
-$ npm install
-
-$ npm start
+```
+  $ git clone git@github.com:truptigaonkar/mandatory-advanced-js4.git
+  $ cd mandatory-advanced-js4.git
+  $ npm install
+  $ npm start
+```
 
 ### Requirements
 * The game should be written using React
