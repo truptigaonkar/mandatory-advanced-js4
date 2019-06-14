@@ -1,4 +1,5 @@
-# CONNECT FOUR Game - Advanced JavaScript with React
+# CONNECT FOUR Game - Advanced JavaScript with React 
+### Demo: [CONNECT4](https://truptigaonkar.github.io/mandatory-advanced-js4/)
 
 ## Instructions
 * Connect Four is a game where two players take turns dropping colored discs into a 7x6 grid (https://en.wikipedia.org/wiki/Connect_Four).
@@ -9,18 +10,13 @@ playing. If the game is a draw, the game should show a message.
 * A “reset” button should be displayed after the game is over.
 
 ### Installation
-1. Clone the repo
-```sh
-git clone git@github.com:truptigaonkar/mandatory-advanced-js4.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Start the project
-```sh
-npm start
-```
+$ git clone git@github.com:truptigaonkar/mandatory-advanced-js4.git
+
+$ cd mandatory-advanced-js4.git
+
+$ npm install
+
+$ npm start
 
 ### Requirements
 * The game should be written using React
