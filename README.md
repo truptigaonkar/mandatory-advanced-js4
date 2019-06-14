@@ -1,44 +1,28 @@
-# Mandatory Exercise 4 - Advanced JavaScript with React
-
-For this mandatory exercise you should work on master branch only .
-
-## Preparation
-
-1. Create a new repository on [Github](github.com) called **mandatory-advanced-js4**
-
-2. Follow the instructions that Github gives you; create a local repository and add a remote or clone
-the recently created repository.
-
-## Submission
-
-When you do the submission of your exercise in Ping Pong, **before the deadline**,
-you will enter the link to your repository, such as:
-
-```
-https://github.com/mygithubusername/mandatory-advanced-js4
-```
-
-The teacher will look in the **master branch**. If any commits are done to the master branch after the deadline, the grade IG will follow.
-
-You will either get **G** or **IG** on the mandatory exercises.
+# CONNECT FOUR Game - Advanced JavaScript with React
 
 ## Instructions
-In this exercise you will create a Connect Four game using React. Connect Four is a game where two players take turns dropping colored discs into a 7x6 grid.
-
-You can find more information about the game and its rules on Wikipedia.
-https://en.wikipedia.org/wiki/Connect_Four
-
-The game should be implemented in React and the players drop discs into the columns by clicking on the grid. When a column is filled, it should not be possible to drop into that column again.
-
-A player wins when four discs of the same color are connected (vertically, horizontally or diagonally). It is important that the logic for checking the winner is implemented correctly.
-
-When a player wins, the game should display a message and it should not be possible to continue
+* Connect Four is a game where two players take turns dropping colored discs into a 7x6 grid (https://en.wikipedia.org/wiki/Connect_Four).
+* The game should be implemented in React and the players drop discs into the columns by clicking on the grid. When a column is filled, it should not be possible to drop into that column again.
+* A player wins when four discs of the same color are connected (vertically, horizontally or diagonally). It is important that the logic for checking the winner is implemented correctly.
+* When a player wins, the game should display a message and it should not be possible to continue
 playing. If the game is a draw, the game should show a message.
+* A “reset” button should be displayed after the game is over.
 
-A “reset” button should be displayed after the game is over.
+### Installation
+1. Clone the repo
+```sh
+git clone git@github.com:truptigaonkar/mandatory-advanced-js4.git
+```
+3. Install NPM packages
+```sh
+npm install
+```
+4. Start the project
+```sh
+npm start
+```
 
 ### Requirements
-
 * The game should be written using React
 * The game should display a 7x6 grid of circles
 * Dropping discs should be implemented correctly. It should not be possible to drop discs into a full column
