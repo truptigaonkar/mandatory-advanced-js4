@@ -6,6 +6,11 @@
 * When a player wins, the game should display a message and it should not be possible to continue
 playing. If the game is a draw, the game should show a message.
 * A “reset” button should be displayed after the game is over.
+#### Technologies
+* Node
+* React
+* Reactstrap (https://reactstrap.github.io/)
+* Material Design (https://material.io)
 #### Installation
 ```
   $ git clone git@github.com:truptigaonkar/mandatory-advanced-js4.git
