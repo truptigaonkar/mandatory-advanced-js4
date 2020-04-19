@@ -1,4 +1,5 @@
 ## CONNECT FOUR Game - Advanced JavaScript with React - [Live Demo]( https://truptigaonkar.github.io/mandatory-advanced-js4/)
+![mandatory-advanced-js4](https://user-images.githubusercontent.com/14937374/79685570-09a8e880-823a-11ea-85c4-00c816549bae.gif)
 ### Instructions
 * Connect Four is a game where two players take turns dropping colored discs into a 7x6 grid (https://en.wikipedia.org/wiki/Connect_Four).
 * The game should be implemented in React and the players drop discs into the columns by clicking on the grid. When a column is filled, it should not be possible to drop into that column again.
